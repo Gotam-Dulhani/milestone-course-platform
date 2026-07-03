@@ -33,7 +33,15 @@ export default async function AdminPanel() {
   const totalCourses = courses?.length || 0
   const totalMilestones = courses?.reduce((acc, course) => acc + (course.milestones?.length || 0), 0) || 0
   const totalEnrollments = enrollments?.length || 0
-  const uniqueStudents = [...new Set(enrollments?.map(e => e.user_id) || [])].length
+  
+  // Calculate unique students without Set for TypeScript compatibility
+  const uniqueUserIds: string[] = []
+  enrollments?.forEach(e => {
+    if (!uniqueUserIds.includes(e.user_id)) {
+      uniqueUserIds.push(e.user_id)
+    }
+  })
+  const uniqueStudents = uniqueUserIds.length
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950/20 selection:bg-indigo-500 selection:text-white transition-colors duration-300">
