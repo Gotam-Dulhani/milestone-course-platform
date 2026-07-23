@@ -62,7 +62,7 @@ export default function SignIn() {
         }} />
 
         {/* Content */}
-        <div className={`relative z-10 max-w-lg px-12 ${mounted ? 'animate-slide-in-left' : 'opacity-0'}`}>
+        <div className="relative z-10 max-w-lg px-12 animate-slide-in-left">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-12">
             <div className="w-12 h-12 glowing-gradient rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-indigo-500/30">
@@ -91,7 +91,7 @@ export default function SignIn() {
               { icon: 'M13 10V3L4 14h7v7l9-11h-7z', text: 'Structured courses designed for rapid growth' },
               { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z', text: 'Join a community of driven learners' },
             ].map((item, i) => (
-              <div key={i} className={`flex items-center gap-4 ${mounted ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${0.3 + i * 0.15}s` }}>
+              <div key={i} className="flex items-center gap-4 animate-slide-in-left" style={{ animationDelay: `${0.3 + i * 0.15}s` }}>
                 <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center">
                   <svg className="w-5 h-5 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
@@ -109,7 +109,7 @@ export default function SignIn() {
               { value: '50+', label: 'Courses' },
               { value: '98%', label: 'Completion' },
             ].map((stat, i) => (
-              <div key={i} className={`${mounted ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${0.7 + i * 0.1}s` }}>
+              <div key={i} className="animate-slide-in-left" style={{ animationDelay: `${0.7 + i * 0.1}s` }}>
                 <div className="text-2xl font-extrabold text-white">{stat.value}</div>
                 <div className="text-xs font-medium text-indigo-300/60 mt-1">{stat.label}</div>
               </div>
@@ -118,8 +118,8 @@ export default function SignIn() {
         </div>
       </div>
 
-      {/* Right Panel — Form */}
-      <div className="flex-1 flex items-center justify-center px-6 sm:px-12 py-12 relative">
+      {/* Right Panel - Form */}
+      <div className="flex-1 flex items-center justify-center px-5 sm:px-12 py-16 lg:py-12 relative overflow-y-auto min-h-screen">
         {/* Mobile Logo */}
         <div className="lg:hidden absolute top-6 left-6">
           <Link href="/" className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export default function SignIn() {
           </Link>
         </div>
 
-        <div className={`w-full max-w-[420px] ${mounted ? 'animate-slide-in-right' : 'opacity-0'}`}>
+        <div className="w-full max-w-[420px] animate-slide-in-right">
           {/* Form Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-900/40 mb-4">
@@ -162,7 +162,7 @@ export default function SignIn() {
 
           {/* Form */}
           <form onSubmit={handleSignIn} className="space-y-5">
-            <div className="stagger-1 animate-fade-up-stagger">
+            <div className="stagger-1">
               <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                 Email address
               </label>
@@ -184,7 +184,7 @@ export default function SignIn() {
               </div>
             </div>
 
-            <div className="stagger-2 animate-fade-up-stagger">
+            <div className="stagger-2">
               <label htmlFor="password" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                 Password
               </label>
@@ -222,7 +222,7 @@ export default function SignIn() {
               </div>
             </div>
 
-            <div className="stagger-3 animate-fade-up-stagger">
+            <div className="stagger-3">
               <button 
                 type="submit" 
                 disabled={loading}

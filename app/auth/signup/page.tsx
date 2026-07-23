@@ -101,7 +101,7 @@ export default function SignUp() {
 
         <div className="absolute inset-0 opacity-[0.03]" style={gridStyle} />
 
-        <div className={`relative z-10 max-w-xl px-14 ${mounted ? 'animate-slide-in-left' : 'opacity-0'}`}>
+        <div className="relative z-10 max-w-xl px-8 lg:px-14 animate-slide-in-left">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-12 h-12 glowing-gradient rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-indigo-500/30">
               C
@@ -129,7 +129,7 @@ export default function SignUp() {
                 { step: '02', title: 'Complete milestones', desc: 'Progress through bite-sized learning phases' },
                 { step: '03', title: 'Track and master', desc: 'Watch your progress and achieve mastery' },
               ].map((item, i) => (
-                <div key={i} className={`flex items-start gap-5 relative ${mounted ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${0.3 + i * 0.2}s` }}>
+                <div key={i} className="flex items-start gap-5 relative animate-slide-in-left" style={{ animationDelay: `${0.3 + i * 0.2}s` }}>
                   <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-indigo-500/30">
                     {item.step}
                   </div>
@@ -161,7 +161,7 @@ export default function SignUp() {
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-6 sm:px-12 py-12 relative">
+      <div className="flex-1 flex items-center justify-center px-5 sm:px-12 py-16 lg:py-12 relative overflow-y-auto min-h-screen">
         <div className="lg:hidden absolute top-6 left-6">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 glowing-gradient rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-500/20">
@@ -173,7 +173,7 @@ export default function SignUp() {
           </Link>
         </div>
 
-        <div className={`w-full max-w-[420px] ${mounted ? 'animate-slide-in-right' : 'opacity-0'}`}>
+        <div className="w-full max-w-[420px] animate-slide-in-right">
           {success ? (
             <div className="text-center animate-slide-up">
               <div className="relative inline-flex mb-8">
@@ -230,7 +230,7 @@ export default function SignUp() {
               )}
 
               <form onSubmit={handleSignUp} className="space-y-4">
-                <div className="stagger-1 animate-fade-up-stagger">
+                <div className="stagger-1">
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                     Email address
                   </label>
@@ -252,7 +252,7 @@ export default function SignUp() {
                   </div>
                 </div>
 
-                <div className="stagger-2 animate-fade-up-stagger">
+                <div className="stagger-2">
                   <label htmlFor="password" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                     Password
                   </label>
@@ -337,7 +337,7 @@ export default function SignUp() {
                   )}
                 </div>
 
-                <div className="stagger-3 animate-fade-up-stagger">
+                <div className="stagger-3">
                   <label htmlFor="confirmPassword" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                     Confirm password
                   </label>
@@ -397,7 +397,7 @@ export default function SignUp() {
                   </div>
                 </div>
 
-                <div className="stagger-4 animate-fade-up-stagger pt-2">
+                <div className="stagger-4 pt-2">
                   <button
                     type="submit"
                     disabled={loading}
@@ -423,7 +423,7 @@ export default function SignUp() {
                 </div>
               </form>
 
-              <div className="stagger-5 animate-fade-up-stagger mt-6">
+              <div className="stagger-5 mt-6">
                 <p className="text-xs text-center text-slate-400 dark:text-slate-500 leading-relaxed">
                   By creating an account, you agree to our{' '}
                   <span className="text-indigo-600 dark:text-indigo-400 font-medium cursor-pointer hover:underline">Terms of Service</span>
