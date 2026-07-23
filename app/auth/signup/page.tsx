@@ -45,7 +45,11 @@ export default function SignUp() {
       })
 
       if (error) {
-        setError(error.message)
+        if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+          setError('Unable to connect to authentication service. Please check your internet connection and try again.')
+        } else {
+          setError(error.message)
+        }
       } else if (data?.user?.identities?.length === 0) {
         setError('An account with this email already exists.')
       } else {
@@ -59,7 +63,11 @@ export default function SignUp() {
       }
     } catch (err) {
       console.error('Unexpected error:', err)
-      setError('Connection failed. Check that Supabase URL and key are correct.')
+      if (err instanceof TypeError && err.message?.includes('Failed to fetch')) {
+        setError('Unable to connect to authentication service. Please verify your Supabase configuration and try again.')
+      } else {
+        setError('An unexpected error occurred. Please try again.')
+      }
     } finally {
       setLoading(false)
     }

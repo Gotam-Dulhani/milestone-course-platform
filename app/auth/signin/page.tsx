@@ -18,13 +18,26 @@ export default function SignIn() {
     e.preventDefault()
     setError(null)
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
 
-    if (error) {
-      setError(error.message)
-    } else {
-      router.push('/')
-      router.refresh()
+      if (error) {
+        if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+          setError('Unable to connect to authentication service. Please check your internet connection and try again.')
+        } else {
+          setError(error.message)
+        }
+      } else {
+        router.push('/')
+        router.refresh()
+      }
+    } catch (err) {
+      console.error('Unexpected error:', err)
+      if (err instanceof TypeError && err.message?.includes('Failed to fetch')) {
+        setError('Unable to connect to authentication service. Please verify your Supabase configuration and try again.')
+      } else {
+        setError('An unexpected error occurred. Please try again.')
+      }
     }
   }
 
