@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import ThemeToggle from './ThemeToggle'
 
 interface Course {
   id: string
@@ -38,9 +37,8 @@ export default function CourseDashboard({ initialCourses, user, enrollments }: C
     <div className="space-y-8">
       {/* Search & Filter Controls */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white/60 dark:bg-slate-900/40 p-4 rounded-2xl glass-card">
-        {/* Left: Tabs + ThemeToggle */}
+        {/* Left: Tabs */}
         <div className="flex items-center gap-3 w-full sm:w-auto">
-        <ThemeToggle />
         <div className="flex bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-xl w-full sm:w-auto">
           <button
             onClick={() => setActiveTab('all')}
